@@ -1,0 +1,13 @@
+[user]
+	name = Michael Blatherwick
+	email = michael.blatherwick@exeter.oxon.org
+[github]
+	user = exonian
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+[color]
+        branch = auto
+        diff = auto
+        status = auto
+        ui = auto

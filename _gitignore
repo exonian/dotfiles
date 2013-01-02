@@ -1,0 +1,8 @@
+*.swp
+*.swo
+*.pyc
+*.lock
+*.phar
+
+.sass-cache
+local_settings.py

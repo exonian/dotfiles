@@ -32,3 +32,10 @@ bitbucketpullhg() { hg pull ssh://hg@bitbucket.org/$1; }
 
 # python mkdir (mkdir and touch an __init__.py in it)
 mkdirpy() { mkdir -p "$1" && touch "$1/__init__.py"; }
+
+# Django (thanks ghickman/dotfiles)
+alias pym="python manage.py"
+alias pymrs="python manage.py runserver"
+alias pymrs+="python manage.py runserver_plus"
+alias pyms="python manage.py shell"
+alias pyms+="python manage.py shell_plus"

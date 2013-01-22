@@ -39,3 +39,5 @@ alias pymrs="python manage.py runserver"
 alias pymrs+="python manage.py runserver_plus"
 alias pyms="python manage.py shell"
 alias pyms+="python manage.py shell_plus"
+
+alias TODO="ack TODO ."

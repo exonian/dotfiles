@@ -31,7 +31,7 @@ bitbucketclonegit() { git clone git@bitbucket.org:$1.git; }
 bitbucketpullhg() { hg pull ssh://hg@bitbucket.org/$1; }
 
 # python mkdir (mkdir and touch an __init__.py in it)
-mkdirpy() { mkdir -p "$1" && touch "$1/__init__.py"; }
+mkdirpy() { mkdir "$1" && touch "$1/__init__.py"; }
 
 # Django (thanks ghickman/dotfiles)
 alias pym="python manage.py"

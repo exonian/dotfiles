@@ -88,4 +88,9 @@ bind '"\e[6~": history-search-forward'
 # virtualenvwrapper
 export WORKON_HOME=$HOME/envs
 export PROJECT_HOME=$HOME/repositories
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

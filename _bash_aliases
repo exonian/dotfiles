@@ -41,3 +41,6 @@ alias pyms="python manage.py shell"
 alias pyms+="python manage.py shell_plus"
 
 alias TODO="ack TODO ."
+
+# stupid bloody screen
+screenbright() { echo "$1" | sudo tee /sys/class/backlight/intel_backlight/brightness; }

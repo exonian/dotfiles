@@ -1,5 +1,5 @@
 set number
-set cc=80
+set cc=120
 hi ColorColumn ctermbg=black
 
 set tabstop=4

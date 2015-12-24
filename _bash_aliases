@@ -37,10 +37,9 @@ mkdirpy() { mkdir "$1" && touch "$1/__init__.py"; }
 alias pym="python manage.py"
 alias pymrs="python manage.py runserver"
 alias pymrs+="python manage.py runserver_plus"
-alias pyms="python manage.py shell"
-alias pyms+="python manage.py shell_plus"
+alias pyms="python manage.py shell_plus"
 
-alias TODO="ag TODO ."
+alias TODO="\ag TODO ."
 
 # stupid bloody screen
 screenbright() { echo "$1" | sudo tee /sys/class/backlight/intel_backlight/brightness; }

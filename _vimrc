@@ -48,6 +48,8 @@ nnoremap <C-P> :bprev<CR>
 filetype plugin on
 set grepprg=grep\ -nH\ $*
 
+nnoremap <C-L> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
 
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.

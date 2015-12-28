@@ -41,8 +41,9 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-nnoremap <C-N> :tabn<Enter>
-nnoremap <C-P> :tabp<Enter>
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
 
 filetype plugin on
 set grepprg=grep\ -nH\ $*

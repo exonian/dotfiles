@@ -3,7 +3,6 @@ from os.path import abspath, basename, expanduser, join
 
 for fn in listdir('.'):
     if fn[0] == '_':
-        print('{0}'.format(fn))
         try:
             symlink(abspath(fn), join(
                 expanduser('~/'),
@@ -11,3 +10,5 @@ for fn in listdir('.'):
             ))
         except OSError:
             print('{0} already exists, skipping.'.format(fn))
+        else:
+            print('Copied {0}.'.format(fn))

@@ -10,11 +10,18 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-buftabline'
 Plugin 'nvie/vim-flake8'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scy/vim-mkdir-on-write'
+Plugin 'simnalamburt/vim-mundo'
+Plugin 'sjl/strftimedammit'
+Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 
@@ -33,27 +40,89 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 
 
+" ==============================================================================
+" Basics
+" ------------------------------------------------------------------------------
+
+set hidden
 set number
+
+filetype plugin on
+
+" ColorColumn
 set cc=120
 hi ColorColumn ctermbg=black
 
+" Spacing
 set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set hidden
+" Tab navigation
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
-filetype plugin on
-set grepprg=grep\ -nH\ $*
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
 
-nnoremap <C-L> :NERDTreeToggle<CR>
-let NERDTreeIgnore = ['\.pyc$']
+" ipdb breakpoint
+nnoremap <leader>d oimport ipdb;ipdb.set_trace()<esc>
 
+" LaTeX
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor='latex'
 
-nnoremap <leader>d oimport ipdb;ipdb.set_trace()<esc>
+" Backups
+set backup                        " enable backups
+set noswapfile                    " apparently it's 2012 for ghickman, but thanks for this snippet!
+set undodir=~/.vim/tmp/undo//     " undo files
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
+
+" Make those folders automatically if they don't exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
+
+" Remove trailing whitespace
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+
+" ==============================================================================
+" Search
+" ------------------------------------------------------------------------------
+
+" Case-sensitive search only with caps in search string
+set ignorecase
+set smartcase
+
+" Match while typing
+set hlsearch
+set incsearch
+set showmatch
+
+" Clear search highlighting.
+map <leader><space> :nohls<cr>
+
+
+" ==============================================================================
+" Plugins
+" ------------------------------------------------------------------------------
+
+" Ag
+if executable("ag")
+    set grepprg=ag\ --nogroup\ --nocolor
+    nnoremap <leader>a :Ag<space>
+endif
+
+" NerdTree
+nnoremap <C-L> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$']
